@@ -1,0 +1,6 @@
+(('ROOT', 'project/foo_import.py'), (None, None))
+(('ROOT', 'project/foo_import.py'), ('ROOT', 'project/bar.py'))
+(('ROOT', 'project/foo_import.py'), ('ROOT', 'project/bli.py'))
+(('ROOT', 'project/foo_import.py'), ('ROOT', 'project/sub1'))
+(('ROOT', 'project/foo_import.py'), ('ROOT', 'project/sub1/test.py'))
+(('ROOT', 'project/foo_import.py'), ('ROOT', 'project/sub2'))

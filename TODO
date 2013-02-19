@@ -1,0 +1,110 @@
+=====================
+   TODO: snakefood
+=====================
+
+sfood
+=====
+
+- Add support for absolute imports
+
+    Ronny Pfannschmidt
+
+      while scanning one of my packages i noticed, that there is no support for
+      absolute imports and sharing a submodule name with the stdlib creates a
+      strange cycle in the graph. (i have foo.bar.subprocess, in which i import
+      the stdlib subprocess as absolute import)
+
+
+- Consider removing --internal and --external to a filter, look at if
+  it would be at all possible.
+
+- (For 1.2) Integrate modulefinder code and compare results.
+
+- Support pragmas as comments after an import.
+
+- Check if there is a directly enclosing try/except Importerror block
+  for ignoring deps ('CAUGHT')
+
+
+
+
+
+sfood-checker
+=============
+
+- snakefood: Modify sfood-checker to detect missing imports like this:
+  for every symbol that gets an attribute fetched from it, try to
+  import the module using find_module() and report those which can't
+  be found.
+
+- checkers: Handle the case of importing a class attribute more
+  gracefully? ::
+
+    class ResourceNotifier(basic.LineReceiver):
+        """
+        Watch control socket, pass messages to registered listeners.
+        """
+        from os import linesep as delimiter
+
+- Experiment with the missing imports feature... finish this.
+
+- Add Emacs integration.
+
+
+sfood-cluster
+=============
+
+- Support non-prefix clusters: We could try clustering a variety of
+  modules that do not share a common filename prefix.  Each of these
+  clusters should be called "cluster groups".  Maybe we could extend
+  the cluster file format slightly to support that instead of forcing
+  it to be multiple files.
+
+- Add an option to filter out/ignore all the files that are not in the
+  declared clusters.
+
+
+sfood-graph
+===========
+
+- Make the graphs a lot prettier.  I'm not a Graphviz expert by any
+  measure and I generally don't care much about pretty, so if someone
+  wants to contribute that could be a good area.
+
+  - Support dot subgraphs somehow.  sfood-graph should be able to
+    take some prefixes on the command-line and group the nodes
+    together somehow.
+
+  - Support coloring: the program should take some prefixes on the
+    command-line and colour the related nodes together.
+
+
+
+sfood-checker
+=============
+(new program)
+
+- Write a script to detect useless imports (a mini pychecker using our
+  AST parser, that does this one job well)
+
+
+sfood-sweep
+===========
+(new program)
+
+- Create this new program, which reads dependencies from stdin and
+  takes filenames arguments, and follows the nodes that match the
+  filenames and marks them as it sweeps the graph.  It outputs
+  the list of dependencies that were marked and drops the other ones.  
+
+  * You don't even have to include the package root code, just by
+    concatenating the filenames in the dependency list, you can match
+    the nodes.
+
+  * This can be used to visualize what a graph would look like without
+    a few dependencies: edit the depends file to remove the offending
+    onces and sweep that file to clean up the graph.
+
+- Implement a similar tool that only traces the dependencies between a
+  source and a sink node.
+

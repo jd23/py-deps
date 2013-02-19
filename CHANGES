@@ -1,0 +1,28 @@
+========================
+   CHANGES: snakefood
+========================
+
+Version 1.2 (2007-11-30)
+========================
+
+* [2007-11-30] Fixed bug with processing files with DOS chars from
+  Linux (needed to use universal newlines).
+* [2007-11-16] Fixed bug with faulty fedora packaging.
+* [2007-11-15] Fixed bug with std imports.
+
+
+Version 1.1 (2007-10-09)
+========================
+
+* Added option for more aggressive filtering, to just the files that
+  have been specified on the cmdline, by specifying the --internal
+  option twice.
+
+* Added new ``sfood-checker`` tool.
+
+
+Version 1.0 (2007-07-28)
+========================
+
+* Initial main stable release.
+

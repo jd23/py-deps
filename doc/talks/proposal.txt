@@ -1,0 +1,138 @@
+===============================================
+    Snakefood: Dependency Graphs for Python
+===============================================
+PyCon 2008 Presentation Submission
+==================================
+
+:Author: Martin Blais <blais@furius.ca>
+:Date: 2007-10-28
+:Abstract:
+
+   Submission overview for a presentation about Snakefood at Pycon
+   2008.
+
+.. contents::
+..
+    1  Author and Contact Information
+    2  Requested Timeslot
+    3  Summary of proposed presentation
+    4  Presentation Outline
+    5  Intended Audience
+
+
+Author and Contact Information
+------------------------------
+
+:Presenter Name: Martin Blais
+
+:Contact: I can be reached via email at <blais@furius.ca>.
+
+:Website: http://furius.ca
+
+:Short Bio: Background in high-end computer graphics and finance.
+            Experience in Python consulting, training, and work in the
+            financial domain. I've been using Python for about 8
+            years.
+
+:Project Home: More information about the project that I wish to
+               present in this talk can be found at
+               http://furius.ca/snakefood/ .
+               (You can find documentation there.)
+
+:Categories: - Developer Tools
+             - Dependency Tracking
+             - Code Analysis
+             - Open Source Project
+
+Requested Timeslot
+------------------
+
+I would like the longest available time slot, with some time for
+questions. I have a fair amount of material and examples to present,
+and I could easily present an hour-long talk on this if needed.
+
+
+Summary of proposed presentation
+--------------------------------
+
+Snakefood is an open source project which provides programs to
+generate and filter lists of dependency relationships between Python
+modules and packages and convert the lists into viewable graphs. It
+aims to provide a conservative, slightly imperfect but "good enough"
+solution but that runs reliably on any codes (i.e. it *always* runs
+and finishes, no matter what evils the analyzed code may be doing).
+
+My intention is to start with presenting a short introduction to
+module dependencies in the context of Python in order to motivate the
+design of the data format and the necessity to create the various
+tools in the Snakefood foodchain. I will present examples of running
+the dependency grapher on real codebases, and realistic use cases of
+clustering used to visualize more clearly the relationships between
+portions of large projects, as well as some original uses for the
+output files. I will also show how to parse the dependency format in
+only a few lines of code.
+
+Some of the details of the programs will be explicited, such as the
+algorithms used to implement an automatic, zero-configuration solution
+that always works (Snakefood automatically figures out all the
+relevant paths). Anyone interested in the import mechanism in Python
+should be interested in this portion.
+
+The unused imports checker will also be introduced, and I will show
+how it can be used automatically with the dependency grapher. I hope
+to present some statistics about some of the popular Python codebases
+in relation to this.
+
+During the talk, I will also mention some of the difficulties with
+generating dependencies that drove the decision to use the AST parser
+in order to provide a reliable analyzer, and some cases where the
+heuristics fail.
+
+
+Presentation Outline
+--------------------
+
+- Quick Introduction  [3 min]
+
+- Motivation: Dependency relationships. [5 min]
+
+- Example of generating dependencies. [5 min]
+
+  * How to run sfood and sfood-graph;
+  * There is simply no configuration;
+
+- Example of clustering dependencies. [2 min]
+
+- The foochain: dataflow of dependencies, clustering and graphing. [3 min]
+
+- A "good enough" solution. [5 min]
+
+  * Snakefood always runs;
+  * Cases where Snakefood fails to obtain dependencies;
+  * Some problematic codebases (Zope, Enthought).
+
+- How Snakefood figures out all the paths automatically. [3 min]
+
+- Checking for unused imports. [4 min]
+
+  * Introducing sfood-checker;
+  * How the dependency grapher supports this;
+
+- Some numbers about various popular open source projects [4 min]
+
+- Original uses: [2 min]
+
+  * Asserting dependency relationships on commit;
+  * Makefile to reproduce dependencies;
+
+- Q&A  [8 min]
+
+
+Intended Audience
+-----------------
+
+Python programmers at all levels who are interested in software
+engineering and analyzing their source code.
+
+
+

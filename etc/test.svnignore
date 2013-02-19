@@ -1,0 +1,6 @@
+*.log
+*.deps
+*.clusters
+*.dot
+*.ps
+*.pdf
